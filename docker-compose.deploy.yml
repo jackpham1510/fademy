@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    build: ./server
+    restart: always
+    container_name: fademy_app
+    ports:
+      - "3105:3105"
+    networks:
+      - fademy_net
+    volumes:
+      - "./server/:/app/"
+      - "./server/config.deploy.json:/app/config.docker.json"
+      - "./server/ormconfig.docker.json:/app/ormconfig.json"
+      - "/app/node_modules"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=fademy_app"
+      - "traefik.frontend.rule=Host:fademy.phamdzung.com"
+      - "traefik.port=3105"
+
+networks:
+  fademy_net:
+    external: true

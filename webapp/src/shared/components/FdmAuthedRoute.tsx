@@ -24,13 +24,19 @@ export const FdmAuthedRoute: React.FC<Props> = ({
           return <FdmLoading />;
         }
 
-        if (AuthService.isAuthed && (!roles || roles.includes((authedUser as any).role))) {
+        if (
+          AuthService.isAuthed &&
+          (!roles || roles.includes((authedUser as any).role))
+        ) {
           return <Component {...props} />;
         }
 
         return (
           <Redirect
-            to={{ pathname: "/auth/login", state: { redirect: props.location.pathname } }}
+            to={{
+              pathname: "/auth/login",
+              state: { redirect: props.location.pathname },
+            }}
           />
         );
       }}

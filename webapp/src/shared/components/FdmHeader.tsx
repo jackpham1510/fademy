@@ -34,6 +34,7 @@ export function FdmHeader() {
   const renewSearchTermCompKey = searchTermCompKey.renewCompKey;
 
   useEffect(() => {
+    // console.log('reNewSearchTermCompKey');
     renewSearchTermCompKey();
   }, [globalState.searchTerm, renewSearchTermCompKey]);
 

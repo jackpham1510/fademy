@@ -1,9 +1,14 @@
-import { BookOutlined, HeartOutlined, PoweroffOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { AuthService } from '../../modules/auth/AuthService';
-import { IUser } from '../entities/IUser';
+import {
+  BookOutlined,
+  HeartOutlined,
+  PoweroffOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Menu } from "antd";
+import React from "react";
+import { Link } from "react-router-dom";
+import { AuthService } from "../../modules/auth/AuthService";
+import { IUser } from "../entities/IUser";
 
 interface IFdmUserDropdownMenuProps {
   user?: IUser;
@@ -33,5 +38,5 @@ export function FdmUserDropdownMenu(props: IFdmUserDropdownMenuProps) {
         </div>
       </Menu.Item>
     </Menu>
-  )
+  );
 }

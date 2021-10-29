@@ -42,7 +42,7 @@ export class CourseService {
     'createdDate',
     'updatedDate',
     'status',
-    'complete'
+    'complete',
   ];
 
   constructor(
@@ -52,7 +52,7 @@ export class CourseService {
     private highlightCourseService: HighlightCourseService,
     private watchListService: WatchListService,
     private enrollmentService: EnrollmentService,
-    private contentService: ContentService
+    private contentService: ContentService,
   ) {}
 
   async decor(courses: Course[], user?: AuthUser): Promise<CourseResponse[]> {
@@ -205,11 +205,11 @@ export class CourseService {
       const { contents, ...restCourse } = course;
       const savedCourse = await this.courseRepository.save({
         ...restCourse,
-        slug: uuidv4()
+        slug: uuidv4(),
       });
       if (!!savedCourse) {
         if (!!contents) {
-          contents.forEach(content => content.courseId = savedCourse.id);
+          contents.forEach((content) => (content.courseId = savedCourse.id));
           this.contentService.save(...contents);
         }
         if (!(await this.courseEsService.upsertCourse(savedCourse))) {
@@ -241,14 +241,14 @@ export class CourseService {
         avatarPath: course.avatarPath,
         coverPath: course.coverPath,
         categoryId: course.categoryId,
-        complete: course.complete
+        complete: course.complete,
       };
       const success = await this.partialUpdate(courseId, change);
       if (!success) {
         throw new Error(`Partial update failed for course: ${courseId}`);
       }
       if (!!course.contents) {
-        course.contents.forEach(content => content.courseId = courseId);
+        course.contents.forEach((content) => (content.courseId = courseId));
         await this.contentService.save(...course.contents);
       }
       return success;

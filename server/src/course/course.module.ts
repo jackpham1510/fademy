@@ -21,7 +21,7 @@ import { CourseService } from './course.service';
     WatchListModule,
     CategoryModule,
     EnrollmentModule,
-    ContentModule
+    ContentModule,
   ],
   controllers: [CourseController],
   providers: [CourseService, CourseEsService],

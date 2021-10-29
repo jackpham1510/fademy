@@ -1,17 +1,16 @@
-import { CACHE_MANAGER, Inject, Injectable } from "@nestjs/common";
-import { ConfigService } from "@nestjs/config";
-import { Cache } from "cache-manager";
+import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { Cache } from 'cache-manager';
 import * as otpGenerator from 'otp-generator';
 
 @Injectable()
 export class OtpService {
-
   private readonly OTP_LENGTH;
 
   constructor(
     @Inject(CACHE_MANAGER)
     private cacheManager: Cache,
-    private config: ConfigService
+    private config: ConfigService,
   ) {
     this.OTP_LENGTH = this.config.get('otp.length');
   }

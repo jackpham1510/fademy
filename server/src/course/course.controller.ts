@@ -48,7 +48,7 @@ export class CourseController {
   @Get('/top-of-weeks')
   @ApiResponse({
     type: Course,
-    isArray: true
+    isArray: true,
   })
   @UseInterceptors(ClassSerializerInterceptor)
   topOfWeeks(@Request() req: AuthedRequest) {
@@ -59,7 +59,7 @@ export class CourseController {
   @Get('/top/:type')
   @ApiResponse({
     type: Course,
-    isArray: true
+    isArray: true,
   })
   @UseInterceptors(ClassSerializerInterceptor)
   top(@Param('type') type: CourseTopType, @Request() req: AuthedRequest) {
@@ -72,7 +72,10 @@ export class CourseController {
     type: Course,
   })
   @UseInterceptors(ClassSerializerInterceptor)
-  getDetail(@Param('courseId') courseId: number, @Request() req: AuthedRequest) {
+  getDetail(
+    @Param('courseId') courseId: number,
+    @Request() req: AuthedRequest,
+  ) {
     return this.courseService.getDetail(courseId, req.user);
   }
 
@@ -116,10 +119,7 @@ export class CourseController {
     @Param('id') id: number,
     @Body() request: UpdateStatusRequest,
   ) {
-    const isSuccess = await this.courseService.updateStatus(
-      id,
-      request.status,
-    );
+    const isSuccess = await this.courseService.updateStatus(id, request.status);
     return BooleanResponse.of(isSuccess);
   }
 

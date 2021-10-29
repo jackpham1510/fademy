@@ -77,8 +77,8 @@ export class CourseEsService {
           match: {
             title: {
               query: request.searchTerm,
-              operator: "and"
-            }
+              operator: 'and',
+            },
           },
         });
       }
@@ -134,8 +134,8 @@ export class CourseEsService {
       if (request.isCreatorIdExists) {
         searchBody.query.bool.filter.push({
           term: {
-            creatorId: request.creatorId
-          }
+            creatorId: request.creatorId,
+          },
         });
       }
     }

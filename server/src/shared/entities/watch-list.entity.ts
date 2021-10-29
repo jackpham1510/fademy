@@ -1,6 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Exclude } from 'class-transformer';
-import { watch } from 'fs';
 import {
   Column,
   CreateDateColumn,
@@ -8,7 +6,6 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryColumn,
-  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { EntityStatus } from '../enums/entity-status';

@@ -1,5 +1,4 @@
 import { ApiProperty, ApiResponseProperty } from '@nestjs/swagger';
-import { Exclude } from 'class-transformer';
 import { IsNumber, IsString, Length, Min } from 'class-validator';
 import {
   Column,

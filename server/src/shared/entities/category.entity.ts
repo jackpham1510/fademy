@@ -55,7 +55,9 @@ export class Category {
   createdDate: Date;
 
   @ApiResponseProperty({ type: () => Category })
-  @OneToMany(() => Category, (category) => category.parent, { cascade: ['insert'] })
+  @OneToMany(() => Category, (category) => category.parent, {
+    cascade: ['insert'],
+  })
   children: Category[];
 
   @ApiResponseProperty({ type: () => CategoryTotalEnrollment })

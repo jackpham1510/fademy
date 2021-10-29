@@ -6,10 +6,10 @@ import { OtpService } from './otp.service';
   imports: [
     CacheModule.registerAsync({
       useFactory: (config: ConfigService) => ({
-        ttl: config.get('otp.ttl')
+        ttl: config.get('otp.ttl'),
       }),
-      inject: [ConfigService]
-    })
+      inject: [ConfigService],
+    }),
   ],
   providers: [OtpService],
   exports: [OtpService],

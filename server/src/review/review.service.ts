@@ -25,13 +25,15 @@ export class ReviewService {
       where: { courseId, status: EntityStatus.ACTIVE },
       relations: ['user'],
       order: {
-        updatedDate: 'DESC'
-      }
+        updatedDate: 'DESC',
+      },
     });
   }
 
   async findAvgStar(courseId: number) {
-    const { avgStar } = await this.reviewRepository
+    const {
+      avgStar,
+    } = await this.reviewRepository
       .createQueryBuilder()
       .where('courseId = :courseId', { courseId })
       .select('AVG(star)', 'avgStar')

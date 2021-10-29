@@ -9,3 +9,11 @@ export class WithIdRequest {
   @ApiProperty()
   id: number;
 }
+
+export class _WithIdRequest {
+  @IsNumber()
+  @Type(() => Number)
+  @Min(1)
+  @ApiProperty()
+  id: number;
+}

@@ -26,7 +26,10 @@ export class ReviewController {
     type: PagingResponse,
   })
   @Public()
-  paginate(@Param('courseId') courseId: number, @Query() request: PagingRequest) {
+  paginate(
+    @Param('courseId') courseId: number,
+    @Query() request: PagingRequest,
+  ) {
     return this.reviewService.paginate(courseId, request);
   }
 

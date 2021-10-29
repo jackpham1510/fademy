@@ -1,12 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import * as moment from 'moment';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { EntityStatus } from '../enums/entity-status';
 import { Category } from './category.entity';
 

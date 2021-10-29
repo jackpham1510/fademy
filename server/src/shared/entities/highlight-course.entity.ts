@@ -1,11 +1,11 @@
-import { ApiProperty, ApiResponseProperty } from "@nestjs/swagger";
-import * as moment from "moment";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
-import { EntityStatus } from "../enums/entity-status";
-import { Course } from "./course.entity";
+import { ApiProperty, ApiResponseProperty } from '@nestjs/swagger';
+import * as moment from 'moment';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { EntityStatus } from '../enums/entity-status';
+import { Course } from './course.entity';
 
 @Entity({
-  name: 'highlight_courses'
+  name: 'highlight_courses',
 })
 export class HighlightCourse {
   @ApiProperty()

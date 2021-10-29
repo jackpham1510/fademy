@@ -19,3 +19,21 @@ export class PagingRequest {
     return (this.page - 1) * this.pageSize;
   }
 }
+
+export class _PagingRequest {
+  @ApiProperty({ minimum: 1 })
+  @IsNumber()
+  @Type(() => Number)
+  @Min(1)
+  page: number;
+
+  @ApiProperty({ minimum: 1 })
+  @IsNumber()
+  @Type(() => Number)
+  @Min(1)
+  pageSize: number;
+
+  get offset() {
+    return (this.page - 1) * this.pageSize;
+  }
+}

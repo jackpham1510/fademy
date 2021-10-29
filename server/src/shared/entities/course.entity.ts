@@ -16,7 +16,14 @@ import { User } from './user.entity';
 import { WatchList } from './watch-list.entity';
 import { Enrollment } from './enrollment.entity';
 import { Review } from './review.entity';
-import { IsNumber, IsString, Length, Max, Min, MinLength } from 'class-validator';
+import {
+  IsNumber,
+  IsString,
+  Length,
+  Max,
+  Min,
+  MinLength,
+} from 'class-validator';
 import { HighlightCourse } from './highlight-course.entity';
 
 @Entity({

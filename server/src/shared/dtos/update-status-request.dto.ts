@@ -7,3 +7,9 @@ export class UpdateStatusRequest {
   @ApiProperty({ enum: EntityStatus })
   status: EntityStatus;
 }
+
+export class _UpdateStatusRequest {
+  @IsEnum(EntityStatus)
+  @ApiProperty({ enum: EntityStatus })
+  status: EntityStatus;
+}

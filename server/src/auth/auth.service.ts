@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { OtpService } from 'src/otp/otp.service';
 import { UserRole } from 'src/shared/enums/user-role';
 import { AddUserWithRoleRequest } from 'src/user/dto/add-user-with-role-request.dto';
@@ -7,7 +11,7 @@ import { AuthUser } from './dto/auth-user.dto';
 import { LoginResponse } from './dto/login-response.dto';
 import { RegisterRequest } from './dto/register-request.dto';
 import { TokenService } from './token/token.service';
-import { Profile  } from 'passport-google-oauth20';
+import { Profile } from 'passport-google-oauth20';
 import { EntityStatus } from 'src/shared/enums/entity-status';
 
 @Injectable()
@@ -15,7 +19,7 @@ export class AuthService {
   constructor(
     private userService: UserService,
     private tokenService: TokenService,
-    private otpService: OtpService
+    private otpService: OtpService,
   ) {}
 
   async validateLogin(username: string, password: string) {
@@ -40,7 +44,10 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     if (!user) {
-      user = await this.userService.addUser(AddUserWithRoleRequest.ofGoogleProfile(profile), false);
+      user = await this.userService.addUser(
+        AddUserWithRoleRequest.ofGoogleProfile(profile),
+        false,
+      );
     }
     return user;
   }
@@ -72,7 +79,7 @@ export class AuthService {
   async register(request: RegisterRequest) {
     const validOtp = await this.otpService.checkOtp(request.otp, request.email);
     if (!validOtp) {
-      throw new BadRequestException("OTP is invalid");
+      throw new BadRequestException('OTP is invalid');
     }
     delete request.otp;
     const addUserRequest = AddUserWithRoleRequest.of(request);

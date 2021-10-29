@@ -27,10 +27,16 @@ import { TokenService } from './token/token.service';
       }),
       inject: [ConfigService],
     }),
-    OtpModule
+    OtpModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, TokenService, LocalStrategy, JwtStrategy, GoogleStrategy],
+  providers: [
+    AuthService,
+    TokenService,
+    LocalStrategy,
+    JwtStrategy,
+    GoogleStrategy,
+  ],
   exports: [AuthService, TokenService],
 })
 export class AuthModule {}

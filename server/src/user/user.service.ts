@@ -5,14 +5,13 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { OtpService } from 'src/otp/otp.service';
-import { SearchRequest } from 'src/shared/dtos/search-request.dto';
 import { User } from 'src/shared/entities/user.entity';
 import { EntityStatus } from 'src/shared/enums/entity-status';
 import { UserRole } from 'src/shared/enums/user-role';
 import { BcryptUtil } from 'src/shared/utils/bcrypt.util';
 import { ClassUtils } from 'src/shared/utils/class.util';
 import { PagingUtil } from 'src/shared/utils/paging.util';
-import { Like, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { AddUserWithRoleRequest } from './dto/add-user-with-role-request.dto';
 import * as moment from 'moment';
 import { SearchUserRequest } from './dto/search-user-request.dto';
@@ -27,18 +26,17 @@ export class UserService {
 
   findAll() {
     return this.userRepository.find({
-      select: ['username', 'id', 'firstName', 'lastName']
-    })
+      select: ['username', 'id', 'firstName', 'lastName'],
+    });
   }
 
   searchUser(request: SearchUserRequest) {
-    const qb = this.userRepository
-      .createQueryBuilder();
-    
+    const qb = this.userRepository.createQueryBuilder();
+
     if (!request.all) {
       qb.where('status = :status', { status: EntityStatus.ACTIVE });
     }
-    
+
     if (request.isSearchTermExists) {
       qb.andWhere('email LIKE :searchTerm')
         .andWhere('firstName LIKE :searchTerm or lastName LIKE :searchTerm')
@@ -51,7 +49,7 @@ export class UserService {
   }
 
   async exists(id: number) {
-    return !!(await this.findOneById(id))
+    return !!(await this.findOneById(id));
   }
 
   findOneById(id: number, strict: boolean = false) {
@@ -60,7 +58,7 @@ export class UserService {
       conditions.status = EntityStatus.ACTIVE;
     }
     return this.userRepository.findOne({
-      where: conditions
+      where: conditions,
     });
   }
 

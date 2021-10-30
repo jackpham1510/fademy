@@ -16,7 +16,6 @@ import { Public } from 'src/shared/decorators/public.decorator';
 import { Role } from 'src/shared/decorators/role.decorator';
 import { BooleanResponse } from 'src/shared/dtos/boolean-response.dto';
 import { PagingResponse } from 'src/shared/dtos/paging-response.dto';
-import { SearchRequest } from 'src/shared/dtos/search-request.dto';
 import { StdResponse } from 'src/shared/dtos/std-response.dto';
 import { UpdateStatusRequest } from 'src/shared/dtos/update-status-request.dto';
 import { User } from 'src/shared/entities/user.entity';
@@ -41,13 +40,12 @@ export class UserController {
   @Get('/all')
   @ApiResponse({
     type: User,
-    isArray: true
+    isArray: true,
   })
   @Public()
   findAll() {
     return this.userService.findAll();
   }
-
 
   @UseInterceptors(ClassSerializerInterceptor)
   @Role(UserRole.ADMIN)
@@ -63,7 +61,7 @@ export class UserController {
   @Public()
   @Get('/check-email')
   @ApiResponse({
-    type: CheckResponse
+    type: CheckResponse,
   })
   async checkEmail(@Query() request: CheckEmailRequest) {
     const exists = await this.userService.findOneByEmail(request.email);
@@ -73,7 +71,7 @@ export class UserController {
   @Public()
   @Get('/check-username')
   @ApiResponse({
-    type: CheckResponse
+    type: CheckResponse,
   })
   async checkUsername(@Query() request: CheckUsernameRequest) {
     const exists = await this.userService.findOneByUsername(request.username);

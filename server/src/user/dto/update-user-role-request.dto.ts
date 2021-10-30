@@ -7,3 +7,9 @@ export class UpdateUserRoleRequest {
   @IsEnum(UserRole)
   role: UserRole;
 }
+
+// class _UpdateUserRoleRequest {
+//   @ApiProperty({ enum: UserRole })
+//   @IsEnum(UserRole)
+//   role: UserRole;
+// }

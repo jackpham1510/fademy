@@ -12,3 +12,15 @@ export class UpdateUserFirstLastNameRequest {
   @ApiProperty({ minLength: 1, maxLength: 255 })
   lastName: string;
 }
+
+// class _UpdateUserFirstLastNameRequest {
+//   @IsString()
+//   @Length(1, 255)
+//   @ApiProperty({ minLength: 1, maxLength: 255 })
+//   firstName: string;
+
+//   @IsString()
+//   @Length(1, 255)
+//   @ApiProperty({ minLength: 1, maxLength: 255 })
+//   lastName: string;
+// }

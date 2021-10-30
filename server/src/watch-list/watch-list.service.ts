@@ -8,13 +8,13 @@ import { In, Repository } from 'typeorm';
 export class WatchListService {
   constructor(
     @InjectRepository(WatchList)
-    private watchListRepository: Repository<WatchList>
+    private watchListRepository: Repository<WatchList>,
   ) {}
 
   findByUserId(userId: number) {
     return this.watchListRepository.find({
       userId,
-      status: EntityStatus.ACTIVE
+      status: EntityStatus.ACTIVE,
     });
   }
 
@@ -22,7 +22,7 @@ export class WatchListService {
     return this.watchListRepository.find({
       userId,
       courseId: In(courseIds),
-      status: EntityStatus.ACTIVE
+      status: EntityStatus.ACTIVE,
     });
   }
 

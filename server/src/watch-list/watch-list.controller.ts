@@ -1,10 +1,4 @@
-import {
-  Body,
-  Controller,
-  Param,
-  Put,
-  Request,
-} from '@nestjs/common';
+import { Body, Controller, Param, Put, Request } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthedRequest } from 'src/auth/dto/authed-request';
 import { BooleanResponse } from 'src/shared/dtos/boolean-response.dto';

@@ -32,3 +32,9 @@ services:
 networks:
   fademy_net:
     external: true
+
+# volumes:
+#   fademy_mysql:
+#     external: true
+#   fademy_es_data:
+#     external: true

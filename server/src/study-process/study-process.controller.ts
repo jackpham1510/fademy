@@ -9,10 +9,8 @@ import {
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthedRequest } from 'src/auth/dto/authed-request';
-import { Role } from 'src/shared/decorators/role.decorator';
 import { BooleanResponse } from 'src/shared/dtos/boolean-response.dto';
 import { StudyProcess } from 'src/shared/entities/study-process.entity';
-import { UserRole } from 'src/shared/enums/user-role';
 import { UpdateStudyProcessRequest } from './dto/update-study-process-request.dto';
 import { StudyProcessService } from './study-process.service';
 
@@ -36,7 +34,7 @@ export class StudyProcessController {
 
   @Get('/find-one/:courseId')
   @ApiResponse({
-    type: StudyProcess
+    type: StudyProcess,
   })
   @ApiBearerAuth()
   async findOne(

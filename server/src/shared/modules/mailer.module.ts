@@ -1,6 +1,6 @@
-import { MailerModule } from "@nestjs-modules/mailer";
-import { EjsAdapter } from "@nestjs-modules/mailer/dist/adapters/ejs.adapter";
-import { ConfigService } from "@nestjs/config";
+import { MailerModule } from '@nestjs-modules/mailer';
+import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter';
+import { ConfigService } from '@nestjs/config';
 
 export const mailerModule = MailerModule.forRootAsync({
   useFactory: (config: ConfigService) => ({
@@ -11,8 +11,8 @@ export const mailerModule = MailerModule.forRootAsync({
       secure: false,
       auth: {
         user: config.get('settings.mailer.auth.user'),
-        pass: config.get('settings.mailer.auth.pass')
-      }
+        pass: config.get('settings.mailer.auth.pass'),
+      },
     },
     template: {
       dir: __dirname + '/templates',
@@ -22,5 +22,5 @@ export const mailerModule = MailerModule.forRootAsync({
       },
     },
   }),
-  inject: [ConfigService]
-})
+  inject: [ConfigService],
+});

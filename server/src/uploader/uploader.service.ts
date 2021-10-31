@@ -10,23 +10,19 @@ export class UploaderService {
   private configs = {
     [FileType.IMAGE]: {
       folder: 'upload/images',
-      maxSize:  5 * 1024 * 1024, // 5MB
+      maxSize: 5 * 1024 * 1024, // 5MB
       validMimeTypes: [
         'image/gif',
         'image/jpeg',
         'image/png',
         'image/svg+xml',
-        'image/webp'
-      ]
+        'image/webp',
+      ],
     },
     [FileType.VIDEO]: {
       folder: 'upload/videos',
-      maxSize:  500 * 1024 * 1024, // 500MB
-      validMimeTypes: [
-        'video/x-flv',
-        'video/mp4',
-        'video/3gpp'
-      ]
+      maxSize: 500 * 1024 * 1024, // 500MB
+      validMimeTypes: ['video/x-flv', 'video/mp4', 'video/3gpp'],
     },
   };
 
@@ -41,13 +37,21 @@ export class UploaderService {
   async upload(fileType: FileType, file: Express.Multer.File) {
     const config = this.configs[fileType];
     if (!config) {
-      throw new BadRequestException(`File type is not allowed, only accept: ${JSON.stringify(FileType)}`);
+      throw new BadRequestException(
+        `File type is not allowed, only accept: ${JSON.stringify(FileType)}`,
+      );
     }
     if (config.maxSize < file.size) {
-      throw new BadRequestException(`File size is not allowed, limit: ${config.maxSize / 1024 / 1024}MB`)
+      throw new BadRequestException(
+        `File size is not allowed, limit: ${config.maxSize / 1024 / 1024}MB`,
+      );
     }
     if (!config.validMimeTypes.includes(file.mimetype)) {
-      throw new BadRequestException(`MIME type is not allowed, only accept: ${JSON.stringify(config.validMimeTypes)}`);
+      throw new BadRequestException(
+        `MIME type is not allowed, only accept: ${JSON.stringify(
+          config.validMimeTypes,
+        )}`,
+      );
     }
     const uuid = uuidv4();
     const filename = `${uuid}${path.extname(file.originalname)}`;

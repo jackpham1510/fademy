@@ -18,7 +18,9 @@ export class AddUserWithRoleRequest extends AddUserRequest {
     const req = new AddUserWithRoleRequest();
     req.username = null;
     req.password = null;
-    req.firstName = profile.name.familyName + (!!profile.name.middleName ? ` ${profile.name.middleName}` : '');
+    req.firstName =
+      profile.name.familyName +
+      (!!profile.name.middleName ? ` ${profile.name.middleName}` : '');
     req.lastName = profile.name.givenName;
     req.email = profile.emails[0].value;
     req.role = UserRole.NORMAL;

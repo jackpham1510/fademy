@@ -1,5 +1,11 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsString, Length, MaxLength, MinLength } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import {
+  IsEmail,
+  IsString,
+  Length,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 export class AddUserRequest {
   @ApiProperty({ minLength: 4, maxLength: 255 })

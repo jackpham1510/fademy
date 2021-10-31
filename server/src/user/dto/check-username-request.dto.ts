@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsString, Length } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsString, Length } from 'class-validator';
 
 export class CheckUsernameRequest {
   @ApiProperty({ minLength: 4, maxLength: 255 })

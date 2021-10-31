@@ -42,7 +42,7 @@ export class UploaderController {
     const filePath = await this.uploaderService.upload(fileType, file);
     return StdResponse.of(StdResponseCode.SUCCESS, {
       filePath,
-      state
+      state,
     });
   }
 }

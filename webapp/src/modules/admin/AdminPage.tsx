@@ -1,11 +1,16 @@
-import React from "react";
 import {
   TeamOutlined,
   ReadFilled,
   UserOutlined,
   CompassOutlined,
 } from "@ant-design/icons";
-import { Route, RouteComponentProps, useHistory, Switch, Redirect } from "react-router";
+import {
+  Route,
+  RouteComponentProps,
+  useHistory,
+  Switch,
+  Redirect,
+} from "react-router";
 import { Menu } from "antd";
 import { ManageCategoryPage } from "./ManageCategoryPage";
 import { ManageCoursePage } from "./ManageCoursePage";

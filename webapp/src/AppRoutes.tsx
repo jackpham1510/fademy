@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Switch } from "react-router";
 import { AdminPage } from "./modules/admin/AdminPage";
 import { AuthPage } from "./modules/auth/AuthPage";

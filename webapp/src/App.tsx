@@ -1,7 +1,7 @@
-import React from 'react';
-import { AppRoutes } from './AppRoutes';
-import { FdmFooter } from './shared/components/FdmFooter';
-import { FdmHeader } from './shared/components/FdmHeader';
+import React from "react";
+import { AppRoutes } from "./AppRoutes";
+import { FdmFooter } from "./shared/components/FdmFooter";
+import { FdmHeader } from "./shared/components/FdmHeader";
 
 function App() {
   return (

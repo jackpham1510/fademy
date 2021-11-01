@@ -1,5 +1,4 @@
 import { Tabs } from "antd";
-import React from "react";
 import { Redirect, Route, RouteComponentProps, Switch } from "react-router";
 import { ManageCategoryListPage } from "./ManageCategoryListPage";
 import { CreateCategoryPage } from "./CreateCategoryPage";

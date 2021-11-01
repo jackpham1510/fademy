@@ -76,7 +76,7 @@ export class AuthService {
         }
       );
       return this.saveTokens(data);
-    } catch (err) {
+    } catch (err: any) {
       if (err?.response?.status === 404) {
         this.logout();
       } else {
@@ -100,7 +100,7 @@ export class AuthService {
     try {
       const result = await Axios.get(ApiEndpoint.auth.getProfile);
       return result.data;
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       return null;
     }

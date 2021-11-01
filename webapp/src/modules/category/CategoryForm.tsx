@@ -1,5 +1,5 @@
 import { Button, Form, Input, notification } from "antd";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { ICategory } from "../../shared/entities/ICategory";
 import { NotificationUtils } from "../../shared/utils/NotificationUtils";
 import { CategoryFormRules } from "./CategoryFormRules";
@@ -30,7 +30,7 @@ export function CategoryForm(props: ICategoryFormProps) {
           message: "Success",
           description: "Save category success",
         });
-      } catch (err) {
+      } catch (err: any) {
         console.error(err);
         NotificationUtils.error(err.message);
       }

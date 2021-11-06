@@ -4,7 +4,7 @@
   "port": 3306,
   "username": "root",
   "password": "123456789",
-  "database": "web_nc_fademy",
+  "database": "fademy",
   "entities": [
     "src/shared/entities/*.ts"
   ],

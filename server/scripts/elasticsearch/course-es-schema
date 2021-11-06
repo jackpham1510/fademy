@@ -1,4 +1,4 @@
-PUT web_nc_courses
+PUT fademy_courses
 {
   "settings": {
     "analysis": {

@@ -4,9 +4,9 @@ Tài liệu hướng dẫn cài đặt và sử dụng dự án Fademy
 
 ## Môi trường kiến nghị (được sử dụng khi phát triển dự án)
 
-* MacOS 10.15.1
-* Docker 3.0.4
-* Node 14.15.1
+- MacOS 10.15.1
+- Docker 3.0.4
+- Node 14.15.1
 
 ## Hướng dẫn cài đặt dự án
 
@@ -31,14 +31,14 @@ sudo sysctl -w vm.max_map_count=262144
 
 **Quan trọng:** đợi cho hiện chạy thành công thì mới thực hiện lệnh tiếp theo
 
-* Ví dụ chạy thành công
+- Ví dụ chạy thành công
 
 ![step1_success](./docs/images/step1_success.png)
 
 **2. Cài đặt project**
 
-* Mở một termial khác
-* Tiếp theo chạy lệnh sau
+- Mở một termial khác
+- Tiếp theo chạy lệnh sau
 
 ```
 ./2.run-app.local.sh
@@ -46,14 +46,14 @@ sudo sysctl -w vm.max_map_count=262144
 
 **Quan trọng:** đợi cho lệnh hiện tại chạy thành công thì mới thực hiện lệnh tiếp theo
 
-* Ví dụ chạy thành công
+- Ví dụ chạy thành công
 
 ![step2_success](./docs/images/step2_success.png)
 
 **3. Insert dữ liệu vào Mysql và Elasticsearch**
 
-* Mở một termial khác
-* Tiếp theo chạy lệnh sau
+- Mở một termial khác
+- Tiếp theo chạy lệnh sau
 
 ```
 ./3.run-migration.local.sh
@@ -63,22 +63,22 @@ sudo sysctl -w vm.max_map_count=262144
 
 Tài khoản admin:
 
-* username: **admin**
-* password: **123456789**
+- username: **admin**
+- password: **123456789**
 
 Tài khoản teacher:
 
-* username: **teacher1**
-* password: **123456789**
+- username: **teacher1**
+- password: **123456789**
 
 Tài khoản student:
 
-* username: **student1**
-* password: **123456789**
+- username: **student1**
+- password: **123456789**
 
 ## Gỡ bỏ dự án
 
-* Tắt hết các terminal liên quan đến dự án
+- Tắt hết các terminal liên quan đến dự án
 
 ```
 ./4.remove-app.local.sh

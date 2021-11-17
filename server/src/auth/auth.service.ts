@@ -40,14 +40,13 @@ export class AuthService {
   async validateGoogleLogin(profile: Profile) {
     const email = profile.emails[0];
     let user = await this.userService.findOneByEmail(email.value);
-    if (user.status !== EntityStatus.ACTIVE) {
-      throw new UnauthorizedException();
-    }
     if (!user) {
       user = await this.userService.addUser(
         AddUserWithRoleRequest.ofGoogleProfile(profile),
         false,
       );
+    } else if (user.status !== EntityStatus.ACTIVE) {
+      throw new UnauthorizedException();
     }
     return user;
   }
